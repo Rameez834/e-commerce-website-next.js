@@ -14,7 +14,6 @@ const Page = () => {
         My Cart
       </h1>
 
-
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
         {cart.map((product) => (
@@ -22,7 +21,6 @@ const Page = () => {
             key={product.id}
             className="bg-white rounded-xl shadow-lg p-5"
           >
-
             <img
               src={product.image}
               alt={product.name}

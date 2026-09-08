@@ -1,17 +1,16 @@
 "use client";
-
+import { cartContext } from "@/context/cartContext";
 import React, { useEffect, useState } from "react";
-
+import { useContext } from "react";
 const Page = () => {
   const [products, setProducts] = useState([]);
   const [search, setsearch] = useState("");
+  const { addToCart } = useContext(cartContext);
 
   useEffect(() => {
     const getProducts = async () => {
       const res = await fetch("https://dummyjson.com/products");
       const data = await res.json();
-
-      console.log(data);
 
       setProducts(data.products);
     };
@@ -71,7 +70,7 @@ const Page = () => {
                   {product.category}
                 </span>
               </div>
-
+              
               {/* Content */}
               <div className="p-5">
 
@@ -108,7 +107,7 @@ const Page = () => {
                 </div>
 
                 {/* Button */}
-                <button
+                <button onClick={()=>addToCart(product)}
                   className="w-full mt-5 bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition"
                 >
                   Add to Cart

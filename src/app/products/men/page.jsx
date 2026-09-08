@@ -1,10 +1,12 @@
 "use client";
-
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import {cartContext} from "@/context/cartContext";
 
 const Page = () => {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
+  const { addToCart } = useContext(cartContext)
+  console.log("addToCart:", addToCart);
 
   useEffect(() => {
     const getData = async () => {
@@ -118,7 +120,8 @@ const Page = () => {
                 </div>
 
                 {/* Add to Cart */}
-                <button
+                <button onClick={() => addToCart(product)}
+
                   className="w-full mt-5 bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 active:scale-95 transition"
                 >
                   Add to Cart

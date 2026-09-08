@@ -5,11 +5,9 @@ const Page = () => {
   const router = useRouter();
   return (
     <main>
-      {/* Hero Section */}
       <section className="min-h-screen bg-gray-100 flex items-center">
         <div className="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-10 items-center">
 
-          {/* Text */}
           <div>
             <h1 className="text-5xl font-bold text-gray-900 leading-tight">
               Upgrade Your Style With
